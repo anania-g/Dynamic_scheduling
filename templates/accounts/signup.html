@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'assets/global.css' %}">
+<link rel="stylesheet" href="{% static 'assets/style.css' %}" type="text/css">
+
+    <title>Registration</title>
+</head>
+<body>
+    <!-- JavaScript Bundle with Popper -->
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-8">
+              <div class="card-body p-md-3 mx-md-4">
+                <div class="text-center mb-4">
+                  <img src="{% static 'assets/logo.jpg' %}"
+                    style="width: 80px;" alt="logo">
+                  <h4 class="mt-1 m-4 pb-1">Student Registration Page</h4>
+
+                </div>
+                <form action="" method="post" class="signup-form">
+                  {% csrf_token %}
+                 <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="firstName">First Name</label>
+                    <input type="text" id="firstName" name='firstName'  class="form-control form-control" value="{{form.first_name}}">
+                  </div>
+
+                </div>
+                
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name='lastName' class="form-control form-control" value="{{form.last_name}}" >
+                  </div>
+
+                </div>
+              </div>
+
+              {% comment %} this is for profile {% endcomment %}
+
+              <div class="row">
+                  <div class="col-md-6  mb-4">
+                    <div class="form-label">Gender </div>
+                      <select class="form-select" name='Gender' id='Gender'aria-label="Default select example" >
+                      <option selected>Select a gender</option>
+                      <option value="Female">Female</option>
+                      <option value="Male">Male</option>
+                      </select>
+                    </div>
+               
+                
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label" for="Date_of_birth">Date of birth</label>
+                  <input type="date" id="Date_of_birth"  name='Date_of_birth' class="form-control form-control" value="{{form.date_of_birth}}">
+                </div>
+              </div>
+
+              </div>
+
+{% comment %} this is end of profile {% endcomment %}
+              
+              
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                        <label class="form-label" for="profilePicture">Profile Picture</label>
+                      <input type="file" id="profile_pic" accept="image/*" name='profilePicture' class="form-control form-control" value="{{form.profilepicture}}" >
+                    </div>
+                    </div>
+
+                 
+              </div>
+            <div class="row">
+               <div class="col-md-6  mb-4">
+                <div class="form-label">Program </div>
+                  <select class="form-select" name='program' aria-label="Default select example">
+                  <option selected>Select a program</option>
+                  <option value="bachelors">Bachelors</option>
+                  <option value="Masters">Masters</option>
+                  </select>
+                </div>   
+                
+                <div class="col-md-6  mb-4">
+                  <div class="form-label">Department </div>
+                    <select class="form-select" name='department' pla aria-label="Default select example" >
+                    <option selected>Select a department</option>
+                    <option value="computer_science">Computer Science</option>
+                    <option value="buisness_administration">Business Administration</option>
+                    </select>
+                  </div>
+
+              
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="emailAddress">Email</label>
+                    <input type="emailAddress" id="emailAddress" name='email' class="form-control form-control" value="{{form.email}}">
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name='phoneNumber' class="form-control form-control" value="{{form.phone_number}}" >
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="usename">User Name</label>
+                    <input type="text" id="firstName" name='username'  class="form-control form-control" value="{{form.first_name}}">
+                  </div>
+
+                </div>
+                
+   
+              </div>
+
+
+             <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name='password' class="form-control form-control"  value="{{form.password1}}">
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                      <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name='confirmPassword' class="form-control form-control" value="{{form.password2}}">
+                  </div>
+
+                  <div class="col-md-12 my-4">
+                    <div class="form-group">
+                        <div class="w-100">
+                            <label class="checkbox-wrap checkbox-primary">
+                                I agree all statements in terms of service
+                                <input type="checkbox" checked />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+              </div>
+                  <div class="text-center pt-1  pb-1">
+                    <button style="width: 50%;" class="btn btn-primary btn-block open-btn fa-lg gradient-custom-2 mb-3 " type="submit" name='register'>Register
+                      </button>
+                     
+        
+                 
+                    </div>           
+
+                </form>
+
+                <div class="w-100">
+                  <p class="mt-4">I'm already a member! <a href="{% url 'accounts:signin' %}">Sign In</a></p>
+              </div>
+
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are more than just a company</h4>
+                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'base/js.html' %}
+
+</body>
+<script src="{% static 'js/popup.js' %}" async defer></script>
+
+</html>
